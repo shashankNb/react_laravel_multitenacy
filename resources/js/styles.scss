@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400;1,6..12,600;1,6..12,700&display=swap');
+
+$primary-color: red;
+
+$blue: #337ab7;
+$green: #5cb85c;
+$teal: #5bc0de;
+$orange: #f0ad4e;
+$red: #d9534f;
+$purple: #613d7c;
+$yellow: #f0ad4e;
+$gray: #777;
+$lightGray: #eee;
+$darkGray: #333;
+$white: #fff;
+$black: #000;
+
+// Import Bootstrap SCSS
+@import '/node_modules/admin-lte//build/scss/adminlte.scss';
+
+body {
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+    color: #333;
+}
+
+.frame-border {
+    border:1px solid #ccc;
+    border-radius: 5px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.preloader {
+    background: rgba($primary-color, .9);
+    border-radius: 5px;
+    color: #fff;
+    left: 50%;
+    padding-top: 5px;
+    position: fixed;
+    text-align: center;
+    top: -5px;
+    width: 90px;
+    z-index: 6;
+
+    .spinner {
+        font-size: .8em;
+    }
+}
+
+.update-overlay {
+    animation: Animate 20s ease infinite;
+    background: repeating-linear-gradient(-45deg, rgba(225, 225, 225, .1), rgba(6, 38, 153, .1) 50%) top left fixed;
+    background-size: 30px 30px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+@-webkit-keyframes Animate {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+@-moz-keyframes Animate {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+@keyframes Animate {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
