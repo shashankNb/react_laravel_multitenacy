@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         if($_SERVER['argv'][1] !== 'tenants:migrate') {
             $this->call(LandlordSeeder::class);
+            $this->call(AdminTableSeeder::class);
         } else {
             User::factory(10)->create();
         }

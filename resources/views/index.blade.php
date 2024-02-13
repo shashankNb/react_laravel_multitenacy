@@ -10,8 +10,8 @@
    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
 </head>
 
-<body class="hold-transition sidebar-mini text-sm">
-   <div id="root" class="wrapper"></div>
+<body class="hold-transition">
+   <section id="root"></section>
    <script defer src="{{ asset('js/bundle.js') }}"></script>
 </body>
 

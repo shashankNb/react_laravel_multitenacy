@@ -7,7 +7,7 @@ import {environment} from "../../../environments/environment";
 import {store} from "../../../index";
 
 export interface HomeProps {
-    title: string;
+
 }
 
 const Home: FC<HomeProps> = () => {

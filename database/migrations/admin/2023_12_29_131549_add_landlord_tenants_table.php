@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tenants', function(Blueprint $table) {
+        Schema::connection('landlord')->create('tenants', function(Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('domain')->unique();
             $table->string('database')->unique();
+            $table->date('expiry')->nullable();
+            $table->boolean('status')->default(1);
+            $table->string('logo')->nullable();
+            $table->integer('no_of_users')->default(2);
             $table->timestamps();
         });
     }

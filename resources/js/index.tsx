@@ -1,8 +1,3 @@
-import 'admin-lte/plugins/fontawesome-free/css/all.min.css';
-import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle';
-import 'admin-lte/dist/js/adminlte';
-import './styles.scss'
-
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -12,6 +7,8 @@ import App from './App/App'
 import { rootReducers } from './App/app-store/app.reducer'
 import './App/interceptors/request.interceptor'
 import { thunk } from 'redux-thunk'
+import {ConfigProvider} from "antd";
+import './styles.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -25,9 +22,17 @@ export const store = configureStore({
 root.render(
     <React.StrictMode>
         <Provider store={store}>
+            <ConfigProvider theme={{ token: {
+                    colorPrimary: '#337ab7',
+                    colorSuccess: '#5cb85c',
+                    colorWarning: '#f0ad4e',
+                    colorInfo: '#5bc0de',
+                    colorError: '#d9534f',
+                    fontFamily: "'Nunito Sans', sans-serif" } }}>
                 <HashRouter>
                     <App />
                 </HashRouter>
+            </ConfigProvider>
         </Provider>
     </React.StrictMode>
 )

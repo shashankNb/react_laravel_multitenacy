@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FC, useState } from 'react'
+import {FC, useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppUrl } from '../../../constants/app-url.constants'
 import { TokenService } from '../token.service'
@@ -30,7 +30,7 @@ const Login: FC<LoginProps> = (props, context) => {
         setState((prevState) => ({ ...prevState, isLoading: false }))
         const { email, password, rememberMe } = e
 
-        axios.post(AppUrl.AUTHENTICATE, e)
+        axios.post(AppUrl.LOGIN, e)
             .then(response => handleResponse(response))
             .catch(err => console.log(err))
     }
@@ -41,8 +41,14 @@ const Login: FC<LoginProps> = (props, context) => {
         return navigate('/home')
     }
 
+    useEffect(() => {
+        console.log(123);
+    }, []);
+
     return (
-       <div>Hello</div>
+       <div>
+
+       </div>
     )
 }
 

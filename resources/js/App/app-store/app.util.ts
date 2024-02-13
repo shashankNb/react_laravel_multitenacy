@@ -16,16 +16,17 @@ export function getState<T>(state: AppState, stateKeys: string[]): T {
 }
 
 export const cloneState = (state: AppState, selectorState: any, stateKeys: string[]): any => {
-    const newState = {...state};
-    stateKeys = stateKeys || [];
-    let nodeState: any = newState;
-    for (let i = 0; i < stateKeys.length - 1; i++) {
-        nodeState[stateKeys[i]] = {...nodeState[stateKeys[i]]};
-        nodeState = nodeState[stateKeys[i]];
-    }
-    nodeState[stateKeys[stateKeys.length - 1]] = selectorState;
+    const newState = { ...state };
+    let currentStateRef: any = newState;
 
-    return nodeState;
+    for (const key of stateKeys.slice(0, -1)) {
+        currentStateRef[key] = { ...currentStateRef[key] };
+        currentStateRef = currentStateRef[key];
+    }
+
+    currentStateRef[stateKeys[stateKeys.length - 1]] = selectorState;
+
+    return newState;
 }
 
 export const cloneAndRemoveState = (state: any, stateKeys: string[]): any => {
